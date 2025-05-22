@@ -8,9 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.runBlocking
 import louis.app.niltok.model.Product
+import louis.app.niltok.R
 
 private const val TAG = "Main"
-import louis.app.niltok.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
