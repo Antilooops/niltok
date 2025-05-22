@@ -5,4 +5,6 @@
     <string name="scan_qr_code">Scan QR code</string>
     <string name="ici_quelque_produit_du_panier_ou_du_magasin">ici quelque produit du panier (ou du magasin)</string>
     <string name="cart_button_description">Ouvrir le panier</string>
+    <string name="product_name_text">Jolie Produit</string>
+    <string name="product_price_text">3.00$</string>
 </resources>
