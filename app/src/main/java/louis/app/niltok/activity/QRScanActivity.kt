@@ -1,4 +1,12 @@
 package louis.app.niltok.activity
 
-class QRScanActivity {
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import louis.app.niltok.R
+
+class QRScanActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_qrscan)
+    }
 }
