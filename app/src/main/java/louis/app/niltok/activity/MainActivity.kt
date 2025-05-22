@@ -1,4 +1,4 @@
-package louis.app.niltok
+package louis.app.niltok.activity
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,7 @@ import kotlinx.coroutines.runBlocking
 import louis.app.niltok.model.Product
 
 private const val TAG = "Main"
+import louis.app.niltok.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
