@@ -10,4 +10,6 @@
     <string name="scan_d_un_qr_code">Scan d\'un QR Code</string>
     <string name="panier">panier</string>
     <string name="profile">profile</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
 </resources>
