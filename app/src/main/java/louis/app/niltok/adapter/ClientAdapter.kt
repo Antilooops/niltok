@@ -1,6 +1,7 @@
 package louis.app.niltok.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import louis.app.niltok.R
+import louis.app.niltok.activity.ProductDetailActivity
+import louis.app.niltok.activity.click
 import louis.app.niltok.model.Product
 
-// const val PRODUCT_DATA = "product.data"
+const val PRODUCT_DATA = "product.data"
 
 class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {}
 
@@ -33,7 +36,7 @@ class ProductAdapter(val products: List<Product>) : RecyclerView.Adapter<Product
             text = product.title
         }
         itemView.findViewById<TextView>(R.id.product_price_textview).apply {
-            text = product.price.toString()
+            text = product.price.toString() + " €"
         }
 
         itemView.findViewById<ImageView>(R.id.product_imageview).let {
@@ -44,15 +47,15 @@ class ProductAdapter(val products: List<Product>) : RecyclerView.Adapter<Product
             }
         }
 
-        // itemView.click {
-        //     with(itemView.context) {
-        //         val intent = Intent(this, DetailsClientActivity::class.java).apply {
-        //             // Pour passer un objet d'une activité à une autre
-        //             putExtra(CLIENT_DATA, client)
-        //         }
-        //         startActivity(intent)
-        //     }
-        // }
+        itemView.click {
+            with(itemView.context) {
+                val intent = Intent(this, ProductDetailActivity::class.java).apply {
+                    // Pour passer un objet d'une activité à une autre
+                    putExtra(PRODUCT_DATA, product)
+                }
+                startActivity(intent)
+            }
+        }
 
     }
 }
