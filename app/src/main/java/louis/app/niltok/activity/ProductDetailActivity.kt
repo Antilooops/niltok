@@ -1,9 +1,13 @@
 package louis.app.niltok.activity
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,10 +30,14 @@ class ProductDetailActivity : NavActivity(){
         val descriptiontextView = findViewById<TextView>(R.id.description_detail_textView)
         val categorytextView = findViewById<TextView>(R.id.category_product_detail_textview)
         val rateratingbar = findViewById<RatingBar>(R.id.rate_value_detail_ratingbar)
+        val qrgenerateimagebutton = findViewById<ImageButton>(R.id.qr_code_detail_imageButton)
+        val qrcontainer = findViewById<LinearLayout>(R.id.qr_container)
+        val qrimageview = findViewById<ImageView>(R.id.qr_code_imageview)
 
         val extras = intent.extras
 
-        extras?.getParcelable(PRODUCT_DATA, Product::class.java)?.let {
+        val product = extras?.getParcelable(PRODUCT_DATA, Product::class.java)
+        product?.let {
             titletextView.text = it.title
             Glide.with(this).load(it.image).into(imageView)
             pricetextView.text = it.price.toString() + " €"
@@ -37,6 +45,14 @@ class ProductDetailActivity : NavActivity(){
             descriptiontextView.text = it.description
             categorytextView.text = it.category.toString()
             rateratingbar.rating = it.rate
+        }
+
+        qrgenerateimagebutton.click {
+            product?.let {
+                val qrUrl = "https://quickchart.io/qr?text=${Uri.encode(it.title)}&size=200"
+                qrcontainer.visibility = View.VISIBLE
+                Glide.with(this).load(qrUrl).into(qrimageview)
+            }
         }
     }
 
