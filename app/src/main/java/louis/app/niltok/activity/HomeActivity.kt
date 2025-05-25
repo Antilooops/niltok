@@ -41,5 +41,5 @@ class HomeActivity : AppCompatActivity() {
 
 fun View.click(action : (View) -> Unit){
     setOnClickListener(action)
-    Log.d("EPF", "click !")
+    Log.d("Niltok", "click !")
 }
