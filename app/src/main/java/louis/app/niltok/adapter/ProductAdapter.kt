@@ -1,6 +1,7 @@
 package louis.app.niltok.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import louis.app.niltok.R
 import louis.app.niltok.model.Product
+import louis.app.niltok.activity.click
 
-// const val PRODUCT_DATA = "product.data"
+const val PRODUCT_DATA = "product.data"
 
 class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameProductText = itemView.findViewById<TextView>(R.id.product_holder_name_textview)
@@ -43,6 +45,14 @@ class ProductAdapter(val products: List<Product>, private val onAddToCartClick: 
         }
         holder.addToCartImageButton.setOnClickListener {
             onAddToCartClick(product)
+        }
+        holder.itemView.click {
+            with(holder.itemView.context) {
+                val intent = Intent(this, louis.app.niltok.activity.ProductDetailActivity::class.java).apply {
+                    putExtra(PRODUCT_DATA, product)
+                }
+                startActivity(intent)
+            }
         }
     }
 }
