@@ -107,23 +107,48 @@
         app:srcCompat="@drawable/outline_barcode_scanner_24"
         android:contentDescription="@string/affichage_qr_code"/>
 
-    <LinearLayout
+    <View
+        android:id="@+id/qr_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        android:clickable="true"
+    />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/qr_container"
-        android:layout_width="420dp"
-        android:layout_height="420dp"
+        android:layout_width="380dp"
+        android:layout_height="445dp"
+        android:background="@drawable/rounded_background"
         android:orientation="vertical"
         android:padding="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52"
-        android:visibility="gone">
+        app:layout_constraintVertical_bias="0.5"
+        >
 
         <ImageView
             android:id="@+id/qr_code_imageview"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            android:layout_gravity="center" />
-    </LinearLayout>
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/detail_qr_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="49dp"
+            android:text="@string/retour"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/qr_code_imageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

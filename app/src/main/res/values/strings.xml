@@ -16,4 +16,5 @@
     <string name="product_price_text">3.00$</string>
     <string name="add_to_cart_description">Ajouter au panier\n</string>
     <string name="affichage_qr_code">affichage QR code</string>
+    <string name="retour">retour</string>
 </resources>

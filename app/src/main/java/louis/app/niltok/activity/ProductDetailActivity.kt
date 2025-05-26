@@ -5,12 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import louis.app.niltok.R
 import louis.app.niltok.adapter.PRODUCT_DATA
@@ -31,8 +33,10 @@ class ProductDetailActivity : NavActivity(){
         val categorytextView = findViewById<TextView>(R.id.category_product_detail_textview)
         val rateratingbar = findViewById<RatingBar>(R.id.rate_value_detail_ratingbar)
         val qrgenerateimagebutton = findViewById<ImageButton>(R.id.qr_code_detail_imageButton)
-        val qrcontainer = findViewById<LinearLayout>(R.id.qr_container)
+        val qrbackbutton = findViewById<Button>(R.id.detail_qr_back_button)
+        val qrcontainer = findViewById<ConstraintLayout>(R.id.qr_container)
         val qrimageview = findViewById<ImageView>(R.id.qr_code_imageview)
+        val qroverlay = findViewById<View>(R.id.qr_overlay)
 
         val extras = intent.extras
 
@@ -49,10 +53,18 @@ class ProductDetailActivity : NavActivity(){
 
         qrgenerateimagebutton.click {
             product?.let {
-                val qrUrl = "https://quickchart.io/qr?text=${Uri.encode(it.title)}&size=200"
-                qrcontainer.visibility = View.VISIBLE
+                val qrUrl = "https://quickchart.io/qr?text=${Uri.encode(it.id.toString())}&size=200&caption=${Uri.encode(
+                    it.category.toString()
+                )}&captionFontFamily=mono&captionFontSize=10"
                 Glide.with(this).load(qrUrl).into(qrimageview)
+                qrcontainer.visibility = View.VISIBLE
+                qroverlay.visibility = View.VISIBLE
             }
+        }
+
+        qrbackbutton.click {
+            qroverlay.visibility = View.GONE
+            qrcontainer.visibility = View.GONE
         }
     }
 
