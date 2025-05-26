@@ -5,4 +5,15 @@
     <string name="scan_qr_code">Scan QR code</string>
     <string name="ici_quelque_produit_du_panier_ou_du_magasin">ici quelque produit du panier (ou du magasin)</string>
     <string name="cart_button_description">Ouvrir le panier</string>
+    <string name="cran_d_accueil">Écran d\'accueil</string>
+    <string name="magasin">Magasin</string>
+    <string name="scan_d_un_qr_code">Scan d\'un QR Code</string>
+    <string name="panier">panier</string>
+    <string name="profile">profile</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="product_name_text">Jolie Produit</string>
+    <string name="product_price_text">3.00$</string>
+    <string name="add_to_cart_description">Ajouter au panier\n</string>
+    <string name="affichage_qr_code">affichage QR code</string>
 </resources>
