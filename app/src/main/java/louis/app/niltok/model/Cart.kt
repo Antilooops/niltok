@@ -12,7 +12,18 @@ object CartManager {
         }
     }
 
-    fun removeItem(productId: Int) {
+    fun removeItem(product: Product) {
+        val targetItem = cartItems.find { it.product.id == product.id}
+        if (targetItem != null) {
+            if (targetItem.quantity > 1) {
+                targetItem.quantity -= 1
+            } else {
+                cartItems.remove(targetItem)
+            }
+        }
+    }
+
+    fun removeAllItem(productId: Int) {
         cartItems.removeAll { it.product.id == productId }
     }
 
