@@ -1,73 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:paddingVertical="15dp"
+    >
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cart_item_holder_cardView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/product_holder_root_constraintlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/cart_item_holder_imageview"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
-            android:id="@+id/cart_item_holder_linearlayout_main"
-            android:layout_width="match_parent"
+            android:id="@+id/cart_item_holder_linearlayout_text"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="15dp">
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/cart_item_holder_imageview"
+            app:layout_constraintTop_toTopOf="@id/cart_item_holder_imageview"
+            app:layout_constraintBottom_toBottomOf="@id/cart_item_holder_imageview"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constrainedWidth="true" >
 
-            <ImageView
-                android:id="@+id/cart_item_holder_imageview"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <LinearLayout
-                android:id="@+id/cart_item_holder_linearlayout_text"
+            <TextView
+                android:id="@+id/cart_item_holder_name_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="60dp"
-                android:layout_gravity="top"
-                android:gravity="top"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="@tools:sample/full_names" />
 
-                <TextView
-                    android:id="@+id/cart_item_holder_name_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:fontFamily="sans-serif"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    tools:text="@tools:sample/full_names" />
+            <TextView
+                android:id="@+id/cart_item_holder_details_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                tools:text="@tools:sample/full_names" />
 
-                <TextView
-                    android:id="@+id/cart_item_holder_quantity_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:fontFamily="sans-serif"
-                    android:textSize="13sp"
-                    android:textStyle="normal"
-                    tools:text="@tools:sample/full_names" />
-
-                <TextView
-                    android:id="@+id/cart_item_holder_price_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:fontFamily="sans-serif"
-                    android:textSize="13sp"
-                    android:textStyle="normal"
-                    tools:text="@tools:sample/full_names" />
-            </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

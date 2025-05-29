@@ -14,7 +14,7 @@ import louis.app.niltok.model.CartItem
 
 class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameCartItemText = itemView.findViewById<TextView>(R.id.cart_item_holder_name_textview)
-    val priceCartItemText = itemView.findViewById<TextView>(R.id.cart_item_holder_price_textview)
+    val detailsCartItemText = itemView.findViewById<TextView>(R.id.cart_item_holder_details_textview)
     val imageView = itemView.findViewById<ImageView>(R.id.cart_item_holder_imageview)
 }
 
@@ -30,7 +30,7 @@ class CartAdapter(val cartItems: List<CartItem>) : RecyclerView.Adapter<CartView
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val cartItem = cartItems[position]
         holder.nameCartItemText.text = cartItem.product.title
-        holder.priceCartItemText.text = cartItem.quantity.toString() + " x " + cartItem.product.price.toString() + "€"
+        holder.detailsCartItemText.text = cartItem.quantity.toString() + " x " + cartItem.product.price.toString() + "€"
         holder.imageView.let {
             if(cartItem.product.image.isBlank()) {
                 Glide.with(holder.itemView).load(R.drawable.image_product_not_found).into(it)
