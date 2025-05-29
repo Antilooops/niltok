@@ -24,18 +24,33 @@ class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 }
 
 class ProductAdapter(val products: List<Product>, private val onAddToCartClick: (Product) -> Unit) : RecyclerView.Adapter<ProductViewHolder>() {
+    private var filteredList: List<Product> = products.toList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_holder, parent, false)
         return ProductViewHolder(view)
     }
 
-    override fun getItemCount() = products.size
+//    override fun getItemCount() = products.size
+
+    override fun getItemCount() = filteredList.size
+
+    fun filter(query: String) {
+        filteredList = if (query.isEmpty()) {
+            products
+        } else {
+            products.filter {
+                it.title.contains(query, ignoreCase = true)
+            }
+        }
+        notifyDataSetChanged()
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val product: Product = products[position]
+//        val product: Product = products[position]
+        val product = filteredList[position]
         holder.nameProductText.text = product.title
-        holder.priceProductText.text = product.price.toString()
+        holder.priceProductText.text = product.price.toString() + "€"
         holder.imageView.let {
             if(product.image.isBlank()) {
                 Glide.with(holder.itemView).load(R.drawable.image_product_not_found).into(it)
@@ -43,6 +58,7 @@ class ProductAdapter(val products: List<Product>, private val onAddToCartClick: 
                 Glide.with(holder.itemView).load(product.image).into(it)
             }
         }
+
         holder.addToCartImageButton.setOnClickListener {
             onAddToCartClick(product)
         }
