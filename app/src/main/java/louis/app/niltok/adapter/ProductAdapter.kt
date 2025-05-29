@@ -50,7 +50,7 @@ class ProductAdapter(val products: List<Product>, private val onAddToCartClick: 
 //        val product: Product = products[position]
         val product = filteredList[position]
         holder.nameProductText.text = product.title
-        holder.priceProductText.text = product.price.toString()
+        holder.priceProductText.text = product.price.toString() + "€"
         holder.imageView.let {
             if(product.image.isBlank()) {
                 Glide.with(holder.itemView).load(R.drawable.image_product_not_found).into(it)
