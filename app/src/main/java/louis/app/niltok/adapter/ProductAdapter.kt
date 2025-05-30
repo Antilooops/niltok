@@ -47,7 +47,6 @@ class ProductAdapter(val products: List<Product>, private val onAddToCartClick: 
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-//        val product: Product = products[position]
         val product = filteredList[position]
         holder.nameProductText.text = product.title
         holder.priceProductText.text = product.price.toString() + "€"
@@ -58,7 +57,6 @@ class ProductAdapter(val products: List<Product>, private val onAddToCartClick: 
                 Glide.with(holder.itemView).load(product.image).into(it)
             }
         }
-
         holder.addToCartImageButton.setOnClickListener {
             onAddToCartClick(product)
         }

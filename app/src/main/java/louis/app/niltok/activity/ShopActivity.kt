@@ -25,8 +25,7 @@ class ShopActivity : NavActivity()  {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         runBlocking {
-            val products = Product.getProduct()
-            val adapter = ProductAdapter(products) { product ->
+            val adapter = ProductAdapter(Product.getProduct()) { product ->
                 CartManager.addItem(product)
                 Toast.makeText(this@ShopActivity, "${product.title} added to cart", Toast.LENGTH_SHORT).show()
             }
