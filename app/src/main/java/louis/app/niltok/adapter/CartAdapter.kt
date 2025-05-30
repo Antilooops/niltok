@@ -20,12 +20,11 @@ class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameCartItemText = itemView.findViewById<TextView>(R.id.cart_item_holder_name_textview)
     val detailsCartItemText = itemView.findViewById<TextView>(R.id.cart_item_holder_details_textview)
     val imageView = itemView.findViewById<ImageView>(R.id.cart_item_holder_imageview)
-    val increaseItem = itemView.findViewById<ImageButton>(R.id.cart_item_holder_increase_imagebutton)
-    val decreaseItem = itemView.findViewById<ImageButton>(R.id.cart_item_holder_decrease_imagebutton)
+    val increaseCartItem = itemView.findViewById<ImageButton>(R.id.cart_item_holder_increase_imagebutton)
+    val decreaseCartItem = itemView.findViewById<ImageButton>(R.id.cart_item_holder_decrease_imagebutton)
 }
 
 class CartAdapter(val initialCartItems: List<CartItem>, private val context: Context) : RecyclerView.Adapter<CartViewHolder>() {
-    //private var currentCartItems: List<CartItem> = emptyList()
     private var currentCartItems: MutableList<CartItem> = initialCartItems.toMutableList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
@@ -37,8 +36,8 @@ class CartAdapter(val initialCartItems: List<CartItem>, private val context: Con
 
     fun submitList(newList: List<CartItem>) {
         currentCartItems.clear()
-        currentCartItems.addAll(newList) // Update the mutable list
-        notifyDataSetChanged() // Fallback for general updates, or if items are reordered etc.
+        currentCartItems.addAll(newList)
+        notifyDataSetChanged()
     }
 
     @SuppressLint("SetTextI18n")
@@ -53,12 +52,12 @@ class CartAdapter(val initialCartItems: List<CartItem>, private val context: Con
                 Glide.with(holder.itemView).load(cartItem.product.image).into(it)
             }
         }
-        holder.increaseItem.setOnClickListener {
+        holder.increaseCartItem.setOnClickListener {
             CartManager.addItem(cartItem.product)
             notifyItemChanged(position)
             Toast.makeText(context, "${cartItem.product.title} added to cart", Toast.LENGTH_SHORT).show()
         }
-        holder.decreaseItem.setOnClickListener {
+        holder.decreaseCartItem.setOnClickListener {
             val productToRemove = cartItem.product
             CartManager.removeItem(productToRemove)
             val latestCartFromManager = CartManager.getCartItems()
