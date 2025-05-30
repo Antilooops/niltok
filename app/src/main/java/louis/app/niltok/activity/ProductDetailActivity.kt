@@ -11,11 +11,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import louis.app.niltok.R
 import louis.app.niltok.adapter.PRODUCT_DATA
+import louis.app.niltok.model.CartManager
 import louis.app.niltok.model.Product
 
 class ProductDetailActivity : NavActivity(){
@@ -33,6 +35,7 @@ class ProductDetailActivity : NavActivity(){
         val categorytextView = findViewById<TextView>(R.id.category_product_detail_textview)
         val rateratingbar = findViewById<RatingBar>(R.id.rate_value_detail_ratingbar)
         val qrgenerateimagebutton = findViewById<ImageButton>(R.id.qr_code_detail_imageButton)
+        val addtocartimagebutton = findViewById<ImageButton>(R.id.add_item_to_cart_detail_imageButton)
         val qrbackbutton = findViewById<Button>(R.id.detail_qr_back_button)
         val qrcontainer = findViewById<ConstraintLayout>(R.id.qr_container)
         val qrimageview = findViewById<ImageView>(R.id.qr_code_imageview)
@@ -65,6 +68,13 @@ class ProductDetailActivity : NavActivity(){
         qrbackbutton.click {
             qroverlay.visibility = View.GONE
             qrcontainer.visibility = View.GONE
+        }
+
+        addtocartimagebutton.click {
+            product?.let {
+                CartManager.addItem(it)
+                Toast.makeText(this, "${it.title} ajouté au panier", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

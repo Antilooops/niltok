@@ -94,6 +94,20 @@
         app:layout_constraintVertical_bias="0.974" />
 
     <ImageButton
+        android:id="@+id/add_item_to_cart_detail_imageButton"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="@drawable/round_button_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87"
+        app:srcCompat="@drawable/outline_add_product_24"
+        android:contentDescription="@string/affichage_qr_code"/>
+
+    <ImageButton
         android:id="@+id/qr_code_detail_imageButton"
         android:layout_width="53dp"
         android:layout_height="53dp"
