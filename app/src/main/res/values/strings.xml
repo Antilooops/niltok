@@ -17,4 +17,5 @@
     <string name="add_to_cart_description">Ajouter au panier\n</string>
     <string name="affichage_qr_code">affichage QR code</string>
     <string name="retour">retour</string>
+    <string name="activity_cart_total_price_text">Total: </string>
 </resources>
