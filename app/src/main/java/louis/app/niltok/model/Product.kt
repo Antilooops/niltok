@@ -37,6 +37,31 @@ data class Product(val id: Int, val title: String, val price: Float, val descrip
                 emptyList()
             }
         }
+
+       suspend fun getProductById(id: Int) : Product? {
+            val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+            val client = OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build()
+            val retrofit = Retrofit.Builder().baseUrl("https://fakestoreapi.com/").addConverterFactory(MoshiConverterFactory.create()).client(client).build()
+            val productService = retrofit.create(ProductService::class.java)
+            return try {
+                val getResponse = productService.getProductById(id)
+                Log.i(TAG, "getProduct: $getResponse")
+                Product(
+                    getResponse.id,
+                    getResponse.title,
+                    getResponse.price,
+                    getResponse.description,
+                    getType(getResponse.category),
+                    getResponse.image, getResponse.rating.rate,
+                    getResponse.rating.count
+                )
+            } catch (e: IOException) {
+                Log.e(TAG, "Network error", e)
+                null
+            }
+        }
     }
 }
 

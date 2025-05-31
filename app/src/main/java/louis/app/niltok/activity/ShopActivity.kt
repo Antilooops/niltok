@@ -42,7 +42,6 @@ class ShopActivity : NavActivity()  {
                     return true
                 }
             })
-
         }
     }
 }
