@@ -52,7 +52,6 @@ pages de l'application :
 - magasin (liste des produits)
 - scan d'un QR code
 - panier
-- profile
 
 ### Recherche de produits
 
