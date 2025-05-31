@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/outline_add_home_24"
+            android:title="@string/cran_d_accueil">
+
+        </item>
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/outline_add_shopping_cart_24"
+            android:title="@string/magasin">
+
+        </item>
+        <item
+            android:id="@+id/nav_qr_code"
+            android:icon="@drawable/outline_barcode_scanner_24"
+            android:title="@string/scan_d_un_qr_code">
+
+        </item>
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/outline_add_card_24"
+            android:title="@string/panier">
+
+        </item>
+    </group>
+</menu>

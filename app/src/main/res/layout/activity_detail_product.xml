@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    >
+
+    <ImageView
+        android:id="@+id/product_detail_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/product_name_detail_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/price_product_detail_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_detail_imageview" />
+
+    <TextView
+        android:id="@+id/price_product_detail_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rate_value_detail_ratingbar"
+        app:layout_constraintTop_toBottomOf="@+id/product_name_detail_textview" />
+
+    <RatingBar
+        android:id="@+id/rate_value_detail_ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/price_product_detail_textview"
+        app:layout_constraintBottom_toTopOf="@+id/category_product_detail_textview"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/rate_count_detail_textview"
+        android:layout_width="125dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rate_value_detail_ratingbar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/category_product_detail_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/rate_value_detail_ratingbar"
+        app:layout_constraintBottom_toTopOf="@id/description_detail_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/description_detail_textView"
+        android:layout_width="300dp"
+        android:layout_height="163dp"
+        android:text="TextView"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/add_item_to_cart_detail_imageButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category_product_detail_textview" />
+
+    <ImageButton
+        android:id="@+id/add_item_to_cart_detail_imageButton"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="@drawable/round_button_background"
+        app:srcCompat="@drawable/outline_add_product_24"
+        android:contentDescription="@string/affichage_qr_code"
+        app:layout_constraintTop_toTopOf="@id/description_detail_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/qr_code_detail_imageButton"
+        />
+
+    <ImageButton
+        android:id="@+id/qr_code_detail_imageButton"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="@drawable/round_button_background"
+        app:srcCompat="@drawable/outline_barcode_scanner_24"
+        android:contentDescription="@string/affichage_qr_code"
+        app:layout_constraintBottom_toBottomOf="@id/description_detail_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_item_to_cart_detail_imageButton"
+        />
+
+    <View
+        android:id="@+id/qr_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        android:clickable="true"
+    />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/qr_container"
+        android:layout_width="380dp"
+        android:layout_height="445dp"
+        android:background="@drawable/rounded_background"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        >
+
+        <ImageView
+            android:id="@+id/qr_code_imageview"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/detail_qr_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="49dp"
+            android:text="@string/retour"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/qr_code_imageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
