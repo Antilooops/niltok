@@ -18,4 +18,5 @@
     <string name="affichage_qr_code">affichage QR code</string>
     <string name="retour">retour</string>
     <string name="activity_cart_total_price_text">Total: </string>
+    <string name="home_suggestion_text">Suggestions:</string>
 </resources>

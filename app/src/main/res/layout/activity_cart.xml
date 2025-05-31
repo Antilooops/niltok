@@ -14,6 +14,8 @@
             android:paddingStart="15dp"
             android:paddingVertical="8dp"
             android:text="@string/activity_cart_total_price_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
             />
 
         <androidx.recyclerview.widget.RecyclerView
