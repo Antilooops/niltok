@@ -65,12 +65,6 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constrainedWidth="true" >
-            <!--
-            app:layout_constraintStart_toEndOf="@id/product_holder_imageview"
-            app:layout_constraintEnd_toStartOf="@id/add_item_to_cart_imagebutton"
-            app:layout_constraintTop_toTopOf="@id/product_holder_imageview"
-            app:layout_constraintBottom_toBottomOf="@id/product_holder_imageview"
-            -->
 
             <TextView
                 android:id="@+id/cart_item_holder_name_textview"

@@ -101,12 +101,4 @@ open class NavActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-
-//    override fun onBackPressed() {
-//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//            drawerLayout.closeDrawer(GravityCompat.START)
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }
 }
